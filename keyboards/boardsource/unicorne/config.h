@@ -12,9 +12,24 @@
 #define AUDIO_PWM_DRIVER PWMD6
 #define AUDIO_INIT_DELAY
 #define AUDIO_PWM_CHANNEL RP2040_PWM_CHANNEL_A
-#define STARTUP_SONG SONG(ODE_TO_JOY)
 
 #define ANALOG_JOYSTICK_Y_AXIS_PIN GP26
 #define ANALOG_JOYSTICK_X_AXIS_PIN GP27
 #define POINTING_DEVICE_INVERT_Y
 #define POINTING_DEVICE_INVERT_X
+
+#define TAPPING_TERM 200
+#define PERMISSIVE_HOLD
+// #define CHORDAL_HOLD // This makes it hard for me quickly use the num layer on the same half
+#define QUICK_TAP_TERM 0
+
+#define NO_AUTO_SHIFT_TAB
+#define NO_AUTO_SHIFT_NUMERIC
+#define NO_AUTO_SHIFT_ALPHA
+
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // Double tap Left Shift - see docs // This won't work with home row mods obviously. 
+#define CAPS_WORD_IDLE_TIMEOUT 5000  // 5 seconds.
+
+// rgb stuff
+
+#define SPLIT_RGB_MATRIX_ENABLE
