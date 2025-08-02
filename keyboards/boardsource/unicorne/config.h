@@ -20,14 +20,16 @@
 
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
-// #define CHORDAL_HOLD // This makes it hard for me quickly use the num layer on the same half
+#define CHORDAL_HOLD // Must define chordal layout with this, and exclude thumb cluster by using *
 #define QUICK_TAP_TERM 0
+#define FLOW_TAP_TERM 150
 
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_NUMERIC
 #define NO_AUTO_SHIFT_ALPHA
 
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // Double tap Left Shift - see docs // This won't work with home row mods obviously. 
+// #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // Double tap Left Shift - see docs // This won't work with home row mods obviously. 
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_IDLE_TIMEOUT 5000  // 5 seconds.
 
 // rgb stuff
