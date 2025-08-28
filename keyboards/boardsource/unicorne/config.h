@@ -18,7 +18,7 @@
 #define POINTING_DEVICE_INVERT_Y
 #define POINTING_DEVICE_INVERT_X
 
-#define TAPPING_TERM 200
+#define TAPPING_TERM 185
 #define PERMISSIVE_HOLD
 #define CHORDAL_HOLD // Must define chordal layout with this, and exclude thumb cluster by using *
 #define QUICK_TAP_TERM 0
@@ -33,5 +33,5 @@
 #define CAPS_WORD_IDLE_TIMEOUT 5000  // 5 seconds.
 
 // rgb stuff
-
+#define RGB_MATRIX_TIMEOUT 60000
 #define SPLIT_RGB_MATRIX_ENABLE
