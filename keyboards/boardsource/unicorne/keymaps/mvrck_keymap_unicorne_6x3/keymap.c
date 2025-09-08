@@ -16,10 +16,30 @@ enum layer_names {
     _MEDIA
 };
 
+enum combos {
+  OP_CLOSE_PAREN,
+  UI_OPEN_PAREN,
+  ZX_UNDERSCORE,
+  CV_HYPHEN
+};
+
+const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
+
+combo_t key_combos[] = {
+  [OP_CLOSE_PAREN] = COMBO(op_combo, KC_RPRN),
+  [UI_OPEN_PAREN] = COMBO(ui_combo, KC_LPRN),
+  [ZX_UNDERSCORE] = COMBO(zx_combo, LSFT(KC_MINUS)),
+  [CV_HYPHEN] = COMBO(cv_combo, KC_MINUS),
+};
+
 enum led_states {
     LAYER_BASE,
     LAYER_NAV,
     LAYER_NUM,
+    LAYER_MEDIA,
     ACTION_CAPS_WORD
 };
 
@@ -81,25 +101,20 @@ bool is_flow_tap_key(uint16_t keycode) {
     }
     switch (get_tap_keycode(keycode)) {
         // case KC_SPC: // Removing space since I want the hold function of space to not be affected by flow tap
+        case KC_SPC: // Adding it back
         case KC_A ... KC_Z:
         case KC_DOT:
         case KC_COMM:
         case KC_SCLN:
         case KC_SLSH:
-            return true;
+            return true; // These keys will not trigger their hold function until after flow tap term
     }
     return false;
 }
 
-
 // RGB stuff
 void keyboard_post_init_user(void) {
     set_led_colors(LAYER_BASE);
-}
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-    set_led_colors(get_highest_layer(state));
-    return state;
 }
 
 void caps_word_set_user(bool active) {

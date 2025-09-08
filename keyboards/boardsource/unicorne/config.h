@@ -22,7 +22,7 @@
 #define PERMISSIVE_HOLD
 #define CHORDAL_HOLD // Must define chordal layout with this, and exclude thumb cluster by using *
 #define QUICK_TAP_TERM 0
-#define FLOW_TAP_TERM 150
+#define FLOW_TAP_TERM 100
 
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_NUMERIC
@@ -35,3 +35,4 @@
 // rgb stuff
 #define RGB_MATRIX_TIMEOUT 60000
 #define SPLIT_RGB_MATRIX_ENABLE
+#define SPLIT_TRANSPORT_MIRROR
