@@ -17,22 +17,31 @@ enum layer_names {
 };
 
 enum combos {
-  OP_CLOSE_PAREN,
-  UI_OPEN_PAREN,
-  ZX_UNDERSCORE,
-  CV_HYPHEN
+    RT_LPRN, // (
+    YU_RPRN, // )
+    MCOMM_LBRC, // [
+    COMMDOT_RBRC, // ]
+
+    XC_HYPHEN, // -
+    CV_UNDERSCORE, // _
 };
 
-const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM rt_combo[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM yu_combo[] = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM mcomm_combo[] = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM commdot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
+
 const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 
 combo_t key_combos[] = {
-  [OP_CLOSE_PAREN] = COMBO(op_combo, KC_RPRN),
-  [UI_OPEN_PAREN] = COMBO(ui_combo, KC_LPRN),
-  [ZX_UNDERSCORE] = COMBO(zx_combo, LSFT(KC_MINUS)),
-  [CV_HYPHEN] = COMBO(cv_combo, KC_MINUS),
+    [RT_LPRN] = COMBO(rt_combo, KC_LPRN),
+    [YU_RPRN] = COMBO(yu_combo, KC_RPRN),
+    [MCOMM_LBRC] = COMBO(mcomm_combo, KC_LEFT_BRACKET),
+    [COMMDOT_RBRC] = COMBO(commdot_combo, KC_RIGHT_BRACKET),
+
+    [CV_UNDERSCORE] = COMBO(cv_combo, LSFT(KC_MINUS)),
+    [XC_HYPHEN] = COMBO(xc_combo, KC_MINUS),
 };
 
 enum led_states {
