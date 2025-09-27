@@ -7,7 +7,6 @@
 #include "timer.h"
 #include "caps_word.h"
 #include "print.h"
-#include "rgb_matrix.h"
 
 enum layer_names {
     _BASE,
@@ -44,37 +43,12 @@ combo_t key_combos[] = {
     [XC_HYPHEN] = COMBO(xc_combo, KC_MINUS),
 };
 
-enum led_states {
-    LAYER_BASE,
-    LAYER_NAV,
-    LAYER_NUM,
-    LAYER_MEDIA,
-    ACTION_CAPS_WORD
-};
-
-uint8_t DEFAULT_HUE = 200;
-uint8_t DEFAULT_SAT = 200;
-uint8_t DEFAULT_VAL = 100;
-
-void set_led_colors(enum led_states led_state) {
-    switch (led_state) {
-        case ACTION_CAPS_WORD:
-            rgb_matrix_sethsv_noeeprom(HSV_RED);
-            return;
-        default:
-            rgb_matrix_sethsv_noeeprom(DEFAULT_HUE, DEFAULT_SAT, DEFAULT_VAL);
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            return;
-    }
-}
-
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x6_3(
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                                           KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
         KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,           KC_H, RSFT_T(KC_J), RGUI_T(KC_K), LALT_T(KC_L), LCTL_T(KC_SCLN), KC_QUOT,
         KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B,                                          KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, MO(_MEDIA),
-                                KC_LCTL, MO(_NAV), KC_LGUI,                    KC_ENT, LT(_NUM, KC_SPACE), KC_RALT
+                                KC_LGUI, MO(_NAV), KC_LSFT,                    KC_ENT, LT(_NUM, KC_SPACE), KC_RALT
     ),
     [_NAV] = LAYOUT_split_3x6_3(
         LGUI(KC_GRV), LGUI(KC_Q), LGUI(KC_W), LCTL(KC_TAB), LGUI(KC_R), LGUI(KC_T),     LGUI(KC_LEFT), KC_NO, KC_UP, KC_NO, LGUI(KC_RIGHT), KC_BSPC,
@@ -121,7 +95,30 @@ bool is_flow_tap_key(uint16_t keycode) {
     return false;
 }
 
-// RGB stuff
+enum led_states {
+    LAYER_BASE,
+    LAYER_NAV,
+    LAYER_NUM,
+    LAYER_MEDIA,
+    ACTION_CAPS_WORD
+};
+
+uint8_t DEFAULT_HUE = 50;
+uint8_t DEFAULT_SAT = 255;
+uint8_t DEFAULT_VAL = 100;
+
+void set_led_colors(enum led_states led_state) {
+    switch (led_state) {
+        case ACTION_CAPS_WORD:
+            rgb_matrix_sethsv_noeeprom(HSV_RED);
+            return;
+        default:
+            rgb_matrix_sethsv_noeeprom(DEFAULT_HUE, DEFAULT_SAT, DEFAULT_VAL);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            return;
+    }
+}
+
 void keyboard_post_init_user(void) {
     set_led_colors(LAYER_BASE);
 }

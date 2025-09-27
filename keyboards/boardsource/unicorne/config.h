@@ -18,11 +18,11 @@
 #define POINTING_DEVICE_INVERT_Y
 #define POINTING_DEVICE_INVERT_X
 
-#define TAPPING_TERM 150
+#define TAPPING_TERM 175
 #define PERMISSIVE_HOLD
 #define CHORDAL_HOLD // Must define chordal layout with this, and exclude thumb cluster by using *
 #define QUICK_TAP_TERM 0
-#define FLOW_TAP_TERM 100
+#define FLOW_TAP_TERM 125
 
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_NUMERIC
@@ -32,6 +32,4 @@
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_IDLE_TIMEOUT 5000  // 5 seconds.
 
-// rgb stuff
-#define SPLIT_RGB_MATRIX_ENABLE
-#define SPLIT_TRANSPORT_MIRROR
+#define RGB_MATRIX_TIMEOUT 90000 // number of milliseconds to wait until rgb automatically turns off
