@@ -20,7 +20,8 @@
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED
 #    define RGB_MATRIX_KEYPRESSES
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-#    define RGB_MATRIX_SLEEP
+#    define RGB_MATRIX_TIMEOUT 90000
+// #    define RGB_MATRIX_SLEEP
 #endif
 
 /* Double-tap reset button parameters */
@@ -31,10 +32,10 @@
 #define USB_VBUS_PIN GP27
 
 /* Vial set up */
-#define VIAL_KEYBOARD_UID {0xC4, 0xCC, 0xB4, 0x76, 0x30, 0x16, 0xFC, 0x70}
+// #define VIAL_KEYBOARD_UID {0xC4, 0xCC, 0xB4, 0x76, 0x30, 0x16, 0xFC, 0x70}
 
-#define VIAL_UNLOCK_COMBO_ROWS { 10, 10 }
-#define VIAL_UNLOCK_COMBO_COLS { 3, 4 }
+// #define VIAL_UNLOCK_COMBO_ROWS { 10, 10 }
+// #define VIAL_UNLOCK_COMBO_COLS { 3, 4 }
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 10
 #define DYNAMIC_KEYMAP_MACRO_COUNT 64
@@ -53,3 +54,18 @@
 #define POINTING_DEVICE_TASK_THROTTLE_MS 1
 #define CHARYBDIS_CONFIG_DUAL_SYNC
 #define PMW3360_LIFTOFF_DISTANCE 0x02 //default 0x02, 2mm liftoff distance
+
+// Custom
+#define TAPPING_TERM 175
+#define PERMISSIVE_HOLD
+#define CHORDAL_HOLD // Must define chordal layout with this, and exclude thumb cluster by using *
+#define QUICK_TAP_TERM 0
+#define FLOW_TAP_TERM 125
+
+#define NO_AUTO_SHIFT_TAB
+#define NO_AUTO_SHIFT_NUMERIC
+#define NO_AUTO_SHIFT_ALPHA
+
+// #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // Double tap Left Shift - see docs // This won't work with home row mods obviously. 
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define CAPS_WORD_IDLE_TIMEOUT 5000  // 5 seconds.

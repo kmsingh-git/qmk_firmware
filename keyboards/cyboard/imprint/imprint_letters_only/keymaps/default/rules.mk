@@ -1,0 +1,7 @@
+LTO_ENABLE = no
+QMK_SETTINGS = yes
+
+# Custom
+AUTO_SHIFT_ENABLE = yes
+CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
