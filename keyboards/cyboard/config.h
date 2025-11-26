@@ -20,8 +20,8 @@
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED
 #    define RGB_MATRIX_KEYPRESSES
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-#    define RGB_MATRIX_TIMEOUT 90000
-// #    define RGB_MATRIX_SLEEP
+#    define RGB_MATRIX_SLEEP
+// #    define RGB_MATRIX_TIMEOUT 90000
 #endif
 
 /* Double-tap reset button parameters */
@@ -56,7 +56,7 @@
 #define PMW3360_LIFTOFF_DISTANCE 0x02 //default 0x02, 2mm liftoff distance
 
 // Custom
-#define TAPPING_TERM 175
+#define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
 #define CHORDAL_HOLD // Must define chordal layout with this, and exclude thumb cluster by using *
 #define QUICK_TAP_TERM 0
